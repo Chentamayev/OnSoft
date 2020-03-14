@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OnSoft.API.Models;
 
 namespace OnSoft.API.Model.Data
 {
@@ -8,5 +9,7 @@ namespace OnSoft.API.Model.Data
         
         
     public DbSet<Value> Values { get; set; }
+    public DbSet<User> Users{ get; set; }
+
     }
 }
