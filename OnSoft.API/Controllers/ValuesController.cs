@@ -25,9 +25,9 @@ namespace OnSoft.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-            var values =await _context.Values.ToListAsync();
+            var values = await _context.Values.ToListAsync();
 
-            return Ok(values);
+            return Ok(values); 
         }
 
         // GET api/values/5
@@ -35,7 +35,7 @@ namespace OnSoft.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetValue(int id)
         {
-            var value = await _context.Values.FirstOrDefaultAsync(x => x.Id== id);
+            var value = await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
 
             return Ok(value);
         }
