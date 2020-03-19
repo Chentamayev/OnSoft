@@ -1,0 +1,11 @@
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+    
+}
+#Containerdiv{
+    max-width: initial;
+}
+
+#WelcomeUserDropdown{
+    margin-left: -25%;
+}
