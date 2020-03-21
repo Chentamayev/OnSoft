@@ -12,48 +12,47 @@ namespace OnSoft.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class CompaniesController : ControllerBase
     {
         private readonly DataContext _context;
-        public ValuesController(DataContext context)
-        
+        public CompaniesController(DataContext context)
         {
             _context = context;
 
         }
-        // GET api/values
+        // GET api/companies
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetValues()
+        public async Task<IActionResult> GetCompanies()
         {
-            var values = await _context.Values.ToListAsync();
+            var companies = await _context.Companies.ToListAsync();
 
-            return Ok(values); 
+            return Ok(companies); 
         }
 
-        // GET api/values/5
+        // GET api/companies/5
         [AllowAnonymous]
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetValue(int id)
+        public async Task<ActionResult> GetCompanies(int id)
         {
-            var value = await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
+            var companies = await _context.Companies.FirstOrDefaultAsync(x => x.Id == id);
 
-            return Ok(value);
+            return Ok(companies);
         }
 
-        // POST api/values
+        // POST api/companies
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/companies/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/companies/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
