@@ -20,11 +20,11 @@ export class BankService {
   constructor(private http: HttpClient) { }
 
   getBanks(): Observable<Bank[]> {
-    return this.http.get<Bank[]>(this.baseUrl + 'companies', httpOptions);
+    return this.http.get<Bank[]>(this.baseUrl + 'banks', httpOptions);
   }
 
   getBank(id): Observable<Bank[]> {
-    return this.http.get<Bank[]>(this.baseUrl + 'companies/' + id, httpOptions);
+    return this.http.get<Bank[]>(this.baseUrl + 'banks/' + id, httpOptions);
   }
 
 

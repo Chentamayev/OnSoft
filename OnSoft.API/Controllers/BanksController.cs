@@ -6,12 +6,11 @@ using OnSoft.API.Model.Data;
 
 namespace OnSoft.API.Controllers
 {
-        [Authorize]
-        [Route("api/[controller]")]
-        [ApiController]
-    public class BanksController: ControllerBase
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BanksController : ControllerBase
     {
-        
         private readonly DataContext _context;
         public BanksController(DataContext context)
         {
@@ -25,8 +24,8 @@ namespace OnSoft.API.Controllers
         {
             var banks = await _context.Banks.ToListAsync();
 
-            return Ok(banks); 
+            return Ok(banks);
         }
-        
+
     }
 }

@@ -42,8 +42,28 @@ namespace OnSoft.API.Controllers
 
         // POST api/companies
         [HttpPost]
-        public void Post([FromBody] string value)
+           [HttpPost("add-comapany")]
+        public async Task<IActionResult> Register(CompanyToPostDto companyToPostDto)
         {
+            //Validate request
+           companyToPostDto.companyName = companyToPostDto.companyName;
+
+            if (await _repo.CompanyExist(companyToPostDto.companyName))
+
+                return BadRequest("Company Already In The DB");
+
+
+
+            var companyToCreate = new Company
+            {
+                Username = userForRegisterDto.Username
+            };
+
+            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
+
+
+            return StatusCode(201);
+
         }
 
         // PUT api/companies/5

@@ -18,6 +18,9 @@ import { timer } from 'rxjs'
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css']
 })
+
+
+
 export class CompaniesComponent implements OnInit {
   selectedCompany: Company;
   companies: Company[];
@@ -39,6 +42,17 @@ export class CompaniesComponent implements OnInit {
 
 
 
+
+  }
+  async loadBanks() {
+    this.bankService.getBanks().subscribe((banks: Bank[]) => {
+      this.banks = banks;
+
+    }, error => {
+      this.alertify.error(error);
+    });
+
+
   }
 
   async loadCompanies() {
@@ -50,19 +64,11 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
-  async loadBanks() {
-    this.bankService.getBanks().subscribe((banks: Bank[]) => {
-      this.banks = banks;
-
-    }, error => {
-      this.alertify.error(error);
-    });
-  }
-
-  companyChange(){
-    if(this.banks.length >0){
-    this.bankName=this.banks.find((bank)=> bank.id ===
-    this.selectedCompany.id).bankName;
-    } 
+  companyChange() {
+    if (this.banks.length > 0) {
+      this.bankName = this.banks.find(bank => bank.id === this.selectedCompany.id).bankName;
+      console.log('Hey bro i got bankname', this.bankName);
     }
+  }
 }
+

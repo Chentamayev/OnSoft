@@ -2,14 +2,10 @@
 <div id="selectCompanyDiv" >
 <ng-container *ngIf="companies">
  <div  class="col-12 col-md-3 col-xl-2 mt-5 bd-sidebar">
-   
-    <label  for="">Select Company</label> 
-
-      <select  class="form-control" [(ngModel)]="selectedCompany" >
-
-
-    <option  *ngFor="let each of companies "   [ngValue]="each">{{each.companyName}}</option>
-    </select>
+       <label  for="">Select Company</label> 
+      <select  class="form-control" [(ngModel)]="selectedCompany" (change)="companyChange()">
+        <option  *ngFor="let each of companies "   [ngValue]="each">{{each.companyName}}</option>
+      </select> 
   </div>
 </ng-container>
 <br>
