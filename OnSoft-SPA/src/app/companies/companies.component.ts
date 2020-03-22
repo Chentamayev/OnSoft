@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Company } from '../_models/company';
 import { CompanyService } from '../_services/company.service';
 import { AlertifyService } from '../_services/alertify.service';
-import { async } from '@angular/core/testing';
+
+
 
 
 
@@ -13,7 +14,7 @@ import { async } from '@angular/core/testing';
 })
 export class CompaniesComponent implements OnInit {
   selectedCompany: Company;
-  companies: Company[];
+   companies: Company[];
 
 
 
@@ -25,15 +26,14 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() {
     this.loadCompanies();
-    
 
 
   }
 
-  loadCompanies() {
+  async loadCompanies() {
     this.companyService.getCompanies().subscribe((companies: Company[]) => {
       this.companies = companies;
-      
+
     }, error => {
       this.alertify.error(error);
     });

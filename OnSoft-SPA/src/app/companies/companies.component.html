@@ -1,11 +1,18 @@
 
-  <div class="col-12 col-md-3 col-xl-2 mt-5 bd-sidebar">
-    <label for="">Select Company</label> <br>
-    <select  id="select" data-target="#navbarDropdown" [(ngModel)]="selectedCompany"  >
-      <option value="">Select</option>
-      <option  *ngFor="let value of companies" [ngValue]="value">{{value.name}}</option>
+<ng-container *ngIf="companies">
+ <div  class="col-12 col-md-3 col-xl-2 mt-5 bd-sidebar">
+    <label  for="">Select Company</label> 
+    <select class="form-control"    [(ngModel)]="selectedCompany"  >
+      <option value="" disabled selected>Select</option>
+     
+
+      <option  *ngFor="let value of companies"   [ngValue]="value">{{value.name}}</option>
     </select>
   </div>
+</ng-container>
+
+
+
 
 
 
@@ -13,11 +20,19 @@
   <option *ngFor="let value of companies" [ngValue]="company">{{value.name}}</option>
 </select> -->
 
-<ul class="list-group list-group-flush">
+<ul *ngIf="selectedCompany" class="list-group list-group-flush">
   <li class="list-group-item">Company name: {{selectedCompany.name}}</li>
   <li class="list-group-item">Company address: {{selectedCompany.address}}</li>
-  <li class="list-group-item">Company estimated revenue: {{selectedCompany.estimatedRevenue}} </li>
+  <li class="list-group-item">Company estimated revenue: {{selectedCompany.estimatedRevenue}}₪</li>
 </ul>
 
 
-
+<!-- 
+<h4>Basic native select</h4>
+<mat-form-field>
+  <mat-label>Select Company</mat-label>
+  <select  matNativeControl [(ngModel)]="selectedCompany">
+    <option value="" disabled selected>Select</option>
+    <option *ngFor="let value of companies"  [ngValue="value"]{{value.name}}></option>
+  </select>
+</mat-form-field> -->

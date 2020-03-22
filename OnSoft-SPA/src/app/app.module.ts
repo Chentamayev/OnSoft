@@ -22,6 +22,7 @@ import { appRoutes } from './routes';
 
 
 
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -41,7 +42,8 @@ import { appRoutes } from './routes';
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
-      FormsModule
+      FormsModule,
+      
    ],
    providers: [
       AuthService,

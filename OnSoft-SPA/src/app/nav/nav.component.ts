@@ -23,7 +23,7 @@ export class NavComponent implements OnInit {
       this.alertify.error('Failed to login');
 
     }, () => {
-      this.router.navigate(['/interaction-list']);
+      this.router.navigate(['/companies']);
     }
     );
   }

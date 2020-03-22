@@ -6,7 +6,7 @@ import { Company } from '../_models/company';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
+    Authorization: 'Bearer ' + localStorage.getItem('token')
   })
 }
 
