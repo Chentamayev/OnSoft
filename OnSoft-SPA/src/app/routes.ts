@@ -5,28 +5,31 @@ import { CompaniesComponent } from './companies/companies.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { Component } from '@angular/core';
+import { AddCompanyComponent } from './add-company/add-company.component';
 
 
 
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
-    // {
-    //     path: '',
-    //     runGuardsAndResolvers: 'always',
-    //     //can put canActivate: [AuthGuard] in the path and it will work also   { path: 'interaction-list', component: InteractionListComponent, canActivate: [AuthGuard] }
-    //     canActivate: [AuthGuard],
-    //     children: [
-    //         { path: 'companies', component: CompaniesComponent},
-    //         { path: 'messages', component: MessagesComponent },
-    //         { path: 'lists', component: ListsComponent },
+    {
+        path: '',
+        runGuardsAndResolvers: 'always',
+        //can put canActivate: [AuthGuard] in the path and it will work also   { path: 'interaction-list', component: InteractionListComponent, canActivate: [AuthGuard] }
+        canActivate: [AuthGuard],
+        children: [
+            { path: 'companies', component: CompaniesComponent},
+            { path: 'messages', component: MessagesComponent },
+            { path: 'lists', component: ListsComponent },
+            { path: 'companies', component: CompaniesComponent },
+            { path: 'messages', component: MessagesComponent },
+            { path: 'lists', component: ListsComponent },
+            { path: 'add-company', component: AddCompanyComponent },
+        ]
 
-    //     ]
-        
-    // },
-    { path: 'companies', component: CompaniesComponent},
-    { path: 'messages', component: MessagesComponent },
-    { path: 'lists', component: ListsComponent },
+    },
+
 
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -9,8 +9,8 @@ using OnSoft.API.Model.Data;
 namespace OnSoft.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200312125427_AddedUserEntity")]
-    partial class AddedUserEntity
+    [Migration("20200322095953_User")]
+    partial class User
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,26 @@ namespace OnSoft.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Values");
+                });
+
+            modelBuilder.Entity("OnSoft.API.Models.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EstimatedRevenue")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("OnSoft.API.Models.User", b =>

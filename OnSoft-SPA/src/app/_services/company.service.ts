@@ -14,6 +14,10 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CompanyService {
+  getBanks() {
+    throw new Error("Method not implemented.");
+  }
+
   baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }

@@ -1,38 +1,88 @@
 
+<div id="selectCompanyDiv" >
 <ng-container *ngIf="companies">
  <div  class="col-12 col-md-3 col-xl-2 mt-5 bd-sidebar">
+   
     <label  for="">Select Company</label> 
-    <select class="form-control"    [(ngModel)]="selectedCompany"  >
-      <option value="" disabled selected>Select</option>
-     
 
-      <option  *ngFor="let value of companies"   [ngValue]="value">{{value.name}}</option>
+      <select  class="form-control" [(ngModel)]="selectedCompany" >
+
+
+    <option  *ngFor="let each of companies "   [ngValue]="each">{{each.companyName}}</option>
     </select>
   </div>
 </ng-container>
+<br>
+<br>
+
+
+<h1></h1>
+
+
+</div>
+<div *ngIf="selectedCompany" class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{selectedCompany.companyName}} {{bankName}}</h5>
+    <h6 class="card-subtitle mb-2">Location: {{selectedCompany.address}} </h6>
+    <br>
+    <h6 class="card-subtitle mb-2">Estimated revenue: {{selectedCompany.estimatedRevenue}}₪</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Edit Information</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
 
 
 
 
+<h1>hi {{bankName}} hi</h1>
 
 
-<!-- <select class="form-control col-lg-8" #selectedValue name="selectedValue" id="selectedValue" [(ngModel)]="company" (ngModelChange)="assignCorporationToManage($event)">
-  <option *ngFor="let value of companies" [ngValue]="company">{{value.name}}</option>
-</select> -->
 
-<ul *ngIf="selectedCompany" class="list-group list-group-flush">
-  <li class="list-group-item">Company name: {{selectedCompany.name}}</li>
-  <li class="list-group-item">Company address: {{selectedCompany.address}}</li>
-  <li class="list-group-item">Company estimated revenue: {{selectedCompany.estimatedRevenue}}₪</li>
-</ul>
+
 
 
 <!-- 
-<h4>Basic native select</h4>
-<mat-form-field>
-  <mat-label>Select Company</mat-label>
-  <select  matNativeControl [(ngModel)]="selectedCompany">
-    <option value="" disabled selected>Select</option>
-    <option *ngFor="let value of companies"  [ngValue="value"]{{value.name}}></option>
-  </select>
-</mat-form-field> -->
+<div id="selectCompanyDiv">
+  <ng-container *ngIf="companies">
+    <div class="col-12 col-md-3 col-xl-2 mt-5 bd-sidebar">
+      <label for="">Select Company</label>
+      <select class="form-control" [(ngModel)]="selectedCompany">
+        <option *ngFor="let each of companies" [ngValue]="each">{{
+          each.companyName
+        }}</option>
+      </select>
+    </div>
+  </ng-container>
+
+  <br />
+  <br />
+
+  <ul *ngIf="selectedCompany" class="list-group list-group-flush">
+    <li class="list-group-item">Company name: {{ selectedCompany.companyName }}</li>
+    <li class="list-group-item">
+      Company address: {{ selectedCompany.address }}
+    </li>
+    <li class="list-group-item">
+      Company Estimated revenue: {{ selectedCompany.estimatedRevenue }}₪
+    </li>
+    <button>Show more information</button>
+  </ul>
+</div>
+
+<div *ngIf="selectedCompany" class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ selectedCompany.companyName }} {{ bankName }}</h5>
+    <h6 class="card-subtitle mb-2">Location: {{ selectedCompany.address }}</h6>
+    <br />
+    <h6 class="card-subtitle mb-2">
+      Estimated revenue: {{ selectedCompany.estimatedRevenue }}₪
+    </h6>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <a href="#" class="card-link">Edit Information</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div> -->
